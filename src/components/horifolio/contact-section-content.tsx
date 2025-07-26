@@ -133,7 +133,7 @@ export const ContactSectionContent: FC = () => {
       {/* Social Icons - Enlarged */}
       <div className="flex items-center justify-center space-x-12 mb-12">
         <a 
-          href="https://github.com/yourusername" 
+          href="https://github.com/github11" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="group text-white/70 hover:text-white transition-all duration-300 hover:scale-110 transform" 
@@ -145,7 +145,7 @@ export const ContactSectionContent: FC = () => {
           </div>
         </a>
         <a 
-          href="https://linkedin.com/in/yourprofile" 
+          href="http://www.linkedin.com/in/ayush-chauhan-776321293" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="group text-white/70 hover:text-blue-500 transition-all duration-300 hover:scale-110 transform" 
