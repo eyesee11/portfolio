@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Chauhan - Full Stack Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <!-- Interactive particles background -->
+        <canvas id="particleCanvas" class="particle-canvas"></canvas>
+        <div class="nav-container">
+            <div class="logo">
+                <h2>AYUSH CHAUHAN</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="assets/resume.pdf" download="Ayush_Chauhan_Resume.pdf" class="resume-link">RESUME</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <br>FULL STACK<br>
+                        <span class="highlight">DEVELOPER</span><br>
+                        & AI ENTHUSIAST
+                    </h1>
+                    <p class="hero-description">
+                        Building scalable web applications and AI-driven solutions with React.js, Python, and MongoDB.
+                        Delivering secure, user-focused platforms and collaborating in Agile teams to achieve business objectives.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">VIEW WORK</a>
+                        <a href="#contact" class="btn btn-secondary">GET IN TOUCH</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="geometric-shape shape-1"></div>
+                    <div class="geometric-shape shape-2"></div>
+                    <div class="geometric-shape shape-3"></div>
+                    <!-- New animated elements -->
+                    <div class="floating-grid" id="heroFloatingGrid"></div>
+                    <div class="pulse-rings">
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>SCROLL DOWN</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Section Divider -->
+    <div class="section-divider">
+        <div class="wave-container">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ABOUT ME</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text-full">
+                    <p class="about-intro">
+                        I'm a passionate Full Stack Developer with expertise in React.js, Python, and MongoDB,
+                        delivering scalable web applications and AI-driven solutions.
+                    </p>
+                    <p>
+                        Currently pursuing Bachelor of Engineering in Computer Science at Chitkara University (CGPA: 8.89).
+                        I specialize in building secure, user-focused platforms and have experience working with modern
+                        frameworks like React-Native, three.js, and tools like Git, Power BI, Figma, and Docker.
+                        My approach combines technical excellence with collaborative teamwork to solve complex problems.
+                    </p>
+                    <div class="stats">
+                        <div class="stat">
+                            <h3>10+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>2+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat">
+                            <h3>8.89</h3>
+                            <p>CGPA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Section Divider -->
+    <div class="section-divider">
+        <div class="morphing-shapes-container">
+            <div class="morphing-shape"></div>
+            <div class="morphing-shape" style="animation-delay: 0.5s;"></div>
+            <div class="morphing-shape" style="animation-delay: 1s;"></div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">FEATURED PROJECTS</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/medisync.png" alt="MediSync - Medical Record Synchronization Platform" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://medi-sync-snowy.vercel.app/" class="project-link" target="_blank">VIEW LIVE</a>
+                                <a href="https://github.com/eyesee11/MediSync" class="project-link">GITHUB</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>MEDISYNC</h3>
+                        <p>An innovative solution to fragmented medical documents of a patient. Effectiveness areas are referrals between doctors, accessing medical history. Built with modern web technologies.</p>
+                        <div class="project-tech">
+                            <span>REACT</span>
+                            <span>NODE.JS</span>
+                            <span>MONGODB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/fisight.png" alt="FiSight - AI-Powered Financial Clarity Platform" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="http://fundn3ksus-h3q8ftr8q-eyesee11s-projects.vercel.app/" class="project-link" target="_blank">VIEW LIVE</a>
+                                <a href="https://github.com/eyesee11/FiSight" class="project-link">GITHUB</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FISIGHT</h3>
+                        <p>A collaborative tool used to give smart and sensible financial advice to users, by accessing their information like bank details, investment funds, etc and saving them a fortune.</p>
+                        <div class="project-tech">
+                            <span>REACT</span>
+                            <span>PYTHON</span>
+                            <span>FIREBASE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- <div class="placeholder-image project-placeholder">
+                            <span>PROJECT IMAGE</span>
+                        </div> -->
+                        <img src="assets/images/aethermeet.png" alt="AetherMeet - Secure Video Conferencing Platform" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="http://aethermeet.netlify.app/" class="project-link" target="_blank">VIEW LIVE</a>
+                                <a href="https://github.com/eyesee11/AetherMeet" class="project-link">GITHUB</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>AETHERMEET</h3>
+                        <p>A web application featuring secure user authentication, dynamic room creation, and supports demo and authenticated user flows, robust memory management and optimized server-side rendering.</p>
+                        <div class="project-tech">
+                            <span>JAVASCRIPT</span>
+                            <span>NODE.JS</span>
+                            <span>SOCKET.IO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SKILLS & EXPERTISE</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-content">
+                <div class="skills-category">
+                    <h3>FRONTEND</h3>
+                    <div class="skills-list">
+                        <div class="skill">
+                            <span>React.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>React Native</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Three.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Tailwind CSS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h3>BACKEND & AI</h3>
+                    <div class="skills-list">
+                        <div class="skill">
+                            <span>Node.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>TensorFlow</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>MongoDB</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>TOOLS & DATA</h3>
+                    <div class="skills-list">
+                        <div class="skill">
+                            <span>Git</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Power BI</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Docker</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Figma / Spline</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">LET'S WORK TOGETHER</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>GET IN TOUCH</h3>
+                    <p>Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <h4>EMAIL</h4>
+                            <a href="mailto:ac228248@gmail.com">ac228248@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <h4>GITHUB</h4>
+                            <a href="https://github.com/eyesee11" target="_blank">github.com/eyesee11</a>
+                        </div>
+                        <div class="contact-item">
+                            <h4>LOCATION</h4>
+                            <span>Rajpura, Punjab, India</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/eyesee11" class="social-link" target="_blank">GITHUB</a>
+                        <a href="http://www.linkedin.com/in/ayush-chauhan-776321293" class="social-link" target="_blank">LINKEDIN</a>
+                        <a href="#" class="social-link">TWITTER</a>
+                        <a href="#" class="social-link">DRIBBBLE</a>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">YOUR NAME</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">YOUR EMAIL</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required>
+                        <label for="subject">SUBJECT</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">YOUR MESSAGE</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ayush Chauhan. All rights reserved.</p>
+            <p>Designed & Developed with ❤️</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "neo-brutalist-portfolio",
+  "version": "1.0.0",
+  "description": "A modern, minimalistic portfolio website with neo-brutalist design",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server .",
+    "dev": "npx live-server . --port=3000",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "echo 'Deploy to your hosting platform of choice'"
+  },
+  "keywords": [
+    "portfolio",
+    "neo-brutalist",
+    "minimalist",
+    "responsive",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/portfolio"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
