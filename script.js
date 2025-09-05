@@ -154,10 +154,10 @@ animateElements.forEach(el => {
     console.log('Observing element:', el.className, el);
 });
 
-// Contact Form Handling
+// Contact Form Handling with Real Email Functionality
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         // Get form data
@@ -167,22 +167,68 @@ if (contactForm) {
             formObject[key] = value;
         });
         
-        // Simulate form submission
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         
-        submitBtn.textContent = 'SENDING...';
-        submitBtn.disabled = true;
+        // Validation
+        if (!formObject.name || !formObject.email || !formObject.subject || !formObject.message) {
+            showFormMessage('Please fill in all required fields.', 'error');
+            return;
+        }
         
-        // Simulate API call delay
-        setTimeout(() => {
-            submitBtn.textContent = 'MESSAGE SENT!';
-            submitBtn.style.background = '#4CAF50';
-            submitBtn.style.borderColor = '#4CAF50';
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formObject.email)) {
+            showFormMessage('Please enter a valid email address.', 'error');
+            return;
+        }
+        
+        try {
+            submitBtn.textContent = 'SENDING...';
+            submitBtn.disabled = true;
             
-            // Reset form
-            this.reset();
+            // Send to API endpoint
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formObject)
+            });
             
+            const result = await response.json();
+            
+            if (response.ok) {
+                // Success
+                submitBtn.textContent = 'MESSAGE SENT!';
+                submitBtn.style.background = '#4CAF50';
+                submitBtn.style.borderColor = '#4CAF50';
+                
+                showFormMessage('Thank you! Your message has been sent successfully.', 'success');
+                
+                // Reset form
+                this.reset();
+                
+                console.log('Email sent successfully:', result.messageId);
+            } else {
+                // Error from server
+                throw new Error(result.details || result.error || 'Failed to send message');
+            }
+            
+        } catch (error) {
+            console.error('Form submission error:', error);
+            
+            submitBtn.textContent = 'SEND FAILED';
+            submitBtn.style.background = '#f44336';
+            submitBtn.style.borderColor = '#f44336';
+            
+            // Show appropriate error message
+            if (error.message.includes('fetch')) {
+                showFormMessage('Network error. Please check your connection and try again.', 'error');
+            } else {
+                showFormMessage(error.message || 'Failed to send message. Please try again.', 'error');
+            }
+        } finally {
             // Reset button after 3 seconds
             setTimeout(() => {
                 submitBtn.textContent = originalText;
@@ -190,12 +236,35 @@ if (contactForm) {
                 submitBtn.style.background = '';
                 submitBtn.style.borderColor = '';
             }, 3000);
-            
-            // You can replace this with actual form submission logic
-            console.log('Form submitted:', formObject);
-            
-        }, 2000);
+        }
     });
+}
+
+// Helper function to show form messages
+function showFormMessage(message, type) {
+    // Remove existing message if any
+    const existingMessage = document.querySelector('.form-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    // Create message element
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `form-message form-message-${type}`;
+    messageDiv.textContent = message;
+    
+    // Insert message after the form
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.parentNode.insertBefore(messageDiv, contactForm.nextSibling);
+        
+        // Auto-remove message after 5 seconds
+        setTimeout(() => {
+            if (messageDiv.parentNode) {
+                messageDiv.remove();
+            }
+        }, 5000);
+    }
 }
 
 // Geometric Shapes Animation with Parallax

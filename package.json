@@ -1,13 +1,15 @@
 {
   "name": "neo-brutalist-portfolio",
   "version": "1.0.0",
-  "description": "A modern, minimalistic portfolio website with neo-brutalist design",
-  "main": "index.html",
+  "description": "A modern, minimalistic portfolio website with neo-brutalist design and email functionality",
+  "main": "server.js",
   "scripts": {
-    "start": "npx live-server .",
-    "dev": "npx live-server . --port=3000",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "static": "npx live-server . --port=3000",
     "build": "echo 'No build process needed for static site'",
-    "deploy": "echo 'Deploy to your hosting platform of choice'"
+    "deploy": "echo 'Deploy to your hosting platform of choice'",
+    "install-deps": "npm install nodemailer express cors express-rate-limit helmet dotenv"
   },
   "keywords": [
     "portfolio",
@@ -16,20 +18,36 @@
     "responsive",
     "html",
     "css",
-    "javascript"
+    "javascript",
+    "nodemailer",
+    "express",
+    "email"
   ],
-  "author": "Your Name",
+  "author": "Ayush Chauhan",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/portfolio"
+    "url": "https://github.com/eyesee11/portfolio"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "nodemon": "^3.0.2"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
 }
