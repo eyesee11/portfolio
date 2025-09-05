@@ -739,4 +739,41 @@ function debounce(func, wait) {
     };
 }
 
+// Buy Me Coffee Widget Functionality
+function initializeCoffeeWidget() {
+    const coffeeWidget = document.getElementById('coffeeWidget');
+    const coffeeButton = document.querySelector('.coffee-button');
+    
+    if (coffeeButton) {
+        coffeeButton.addEventListener('click', function() {
+            // Add click animation
+            this.style.transform = 'translate(-3px, -3px) scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+            
+            // Replace with your actual Buy Me Coffee link
+            const coffeeUrl = 'https://buymeacoffee.com/weaboo1164g'; // Replace with your actual link
+            window.open(coffeeUrl, '_blank');
+        });
+        
+        // Add hover sound effect simulation (visual feedback)
+        coffeeButton.addEventListener('mouseenter', function() {
+            const icon = this.querySelector('.coffee-icon');
+            icon.style.transform = 'scale(1.1) rotate(15deg)';
+        });
+        
+        coffeeButton.addEventListener('mouseleave', function() {
+            const icon = this.querySelector('.coffee-icon');
+            icon.style.transform = '';
+        });
+    }
+}
+
+// Initialize coffee widget when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing initialization code...
+    initializeCoffeeWidget();
+});
+
 console.log('Portfolio website loaded successfully! 🚀');
