@@ -34,12 +34,21 @@ const corsOptions = {
     credentials: true
 };
 
+// Serve static files FIRST (before other middleware)
+app.use(express.static(path.join(__dirname, '.'), {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css');
+        }
+        if (path.endsWith('.js')) {
+            res.setHeader('Content-Type', 'application/javascript');
+        }
+    }
+}));
+
 app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
-
-// Serve static files
-app.use(express.static(path.join(__dirname, '.')));
 
 // Email transporter configuration
 const createTransporter = () => {
