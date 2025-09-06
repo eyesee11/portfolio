@@ -15,13 +15,5 @@
       "src": "/(.*)",
       "dest": "/server.js"
     }
-  ],
-  "env": {
-    "EMAIL_HOST": "@email_host",
-    "EMAIL_PORT": "@email_port",
-    "EMAIL_USER": "@email_user",
-    "EMAIL_PASS": "@email_pass",
-    "EMAIL_FROM": "@email_from",
-    "EMAIL_TO": "@email_to"
-  }
+  ]
 }
