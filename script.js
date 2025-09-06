@@ -196,7 +196,21 @@ if (contactForm) {
                 body: JSON.stringify(formObject)
             });
             
-            const result = await response.json();
+            // Check if response has content before parsing JSON
+            let result = {};
+            const contentType = response.headers.get('content-type');
+            
+            if (contentType && contentType.includes('application/json')) {
+                const text = await response.text();
+                if (text.trim()) {
+                    try {
+                        result = JSON.parse(text);
+                    } catch (parseError) {
+                        console.error('JSON parsing error:', parseError);
+                        throw new Error('Invalid server response');
+                    }
+                }
+            }
             
             if (response.ok) {
                 // Success
@@ -211,8 +225,16 @@ if (contactForm) {
                 
                 console.log('Email sent successfully:', result.messageId);
             } else {
-                // Error from server
-                throw new Error(result.details || result.error || 'Failed to send message');
+                // Handle different HTTP status codes
+                if (response.status === 405) {
+                    throw new Error('Server not configured properly. Please make sure you\'re running the Node.js server with "npm start".');
+                } else if (response.status === 404) {
+                    throw new Error('API endpoint not found. Please ensure the server is running correctly.');
+                } else if (response.status >= 500) {
+                    throw new Error('Server error. Please try again later or contact support.');
+                } else {
+                    throw new Error(result.details || result.error || `HTTP ${response.status}: Failed to send message`);
+                }
             }
             
         } catch (error) {
